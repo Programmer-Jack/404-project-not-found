@@ -70,6 +70,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         if (_queueJump && _charController.isGrounded)
         {
             _queueJump = false;
+            // Note: some of the jump & gravity mathematics are adapted from a Google AI Overview,
+            // but it is a fairly standard movement solution
             _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
         }
 

@@ -59,7 +59,7 @@ public class CrashOnFall : MonoBehaviour
             for (int k = 0; k < j; k++)
             {
                 GameObject instance = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                instance.transform.position = new(i, j, k);
+                instance.transform.position = new(k, -j, i);
             }
             i++;
             yield return null;
