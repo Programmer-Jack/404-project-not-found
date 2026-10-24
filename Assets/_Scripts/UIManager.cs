@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -22,5 +23,10 @@ public class UIManager : MonoBehaviour
     private void Temp_GameWinUI()
     {
         _winText.SetActive(true);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene(0);
     }
 }
