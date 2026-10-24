@@ -71,6 +71,22 @@ MonoBehaviour:
   opacity:
     m_OverrideState: 1
     m_Value: 1
+--- !u!114 &-8242077055456428523
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f21c9cf0db442f4cacc9da8684cfffc, type: 3}
+  m_Name: Glitch
+  m_EditorClassIdentifier: Assembly-CSharp::Glitch
+  active: 1
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0
 --- !u!114 &-7828238184015950028
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -1080,7 +1096,7 @@ MonoBehaviour:
   - {fileID: -5287347877664051387}
   - {fileID: -2621999525838869754}
   - {fileID: -3108791857877245799}
-  - {fileID: -6545234714232688741}
+  - {fileID: -8242077055456428523}
 --- !u!114 &128459237010662838
 MonoBehaviour:
   m_ObjectHideFlags: 3
