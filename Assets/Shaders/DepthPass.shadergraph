@@ -405,7 +405,7 @@
     "m_SGVersion": 0,
     "m_Type": "UnityEditor.Rendering.HighDefinition.ShaderGraph.HDFullscreenData",
     "m_ObjectId": "5b1480da270140d4bd704ae11eb06c4f",
-    "m_ShowOnlyHDStencilBits": true
+    "m_ShowOnlyHDStencilBits": false
 }
 
 {
@@ -595,10 +595,10 @@
     "m_SrcAlphaBlendMode": 0,
     "m_DstAlphaBlendMode": 1,
     "m_AlphaBlendOperation": 0,
-    "m_EnableStencil": false,
+    "m_EnableStencil": true,
     "m_StencilReference": 0,
-    "m_StencilReadMask": 255,
-    "m_StencilWriteMask": 255,
+    "m_StencilReadMask": 192,
+    "m_StencilWriteMask": 192,
     "m_StencilCompareFunction": 8,
     "m_StencilPassOperation": 0,
     "m_StencilFailOperation": 0,

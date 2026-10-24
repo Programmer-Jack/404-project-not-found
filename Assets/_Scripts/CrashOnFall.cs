@@ -1,4 +1,5 @@
 using UnityEngine;
+using System;
 using System.Collections;
 
 public class CrashOnFall : MonoBehaviour
@@ -8,10 +9,13 @@ public class CrashOnFall : MonoBehaviour
         AppQuit,
         LoopCrash,
         InstanceCrash,
+        Respawn
     }
 
     private readonly string _playerTag = "Player";
     [SerializeField] private CrashMode _crashMode = CrashMode.AppQuit;
+
+    public static Action OnRespawn;
 
     private void OnTriggerEnter(Collider other)
     {
@@ -27,6 +31,9 @@ public class CrashOnFall : MonoBehaviour
                     break;
                 case CrashMode.InstanceCrash:
                     StartCoroutine(InstanceCrashRoutine());
+                    break;
+                case CrashMode.Respawn:
+                    OnRespawn?.Invoke();
                     break;
                 default:
                     break;
@@ -59,7 +66,7 @@ public class CrashOnFall : MonoBehaviour
             for (int k = 0; k < j; k++)
             {
                 GameObject instance = GameObject.CreatePrimitive(PrimitiveType.Cube);
-                instance.transform.position = new(i, j, k);
+                instance.transform.position = new(k, -j, i);
             }
             i++;
             yield return null;
