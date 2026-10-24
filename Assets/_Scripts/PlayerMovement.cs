@@ -8,9 +8,12 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private InputSystem_Actions _actions;                  // Source code representation of asset.
     private InputSystem_Actions.PlayerActions _player;     // Source code representation of action map.
 
-    private Rigidbody _rb;
+    private CharacterController _charController;
+    private float _gravity = -9.81f;
+    private Vector3 _velocity;
+    private bool _queueJump = false;
     [SerializeField] private float _speed = 4f;
-    [SerializeField] private float _jumpForce = 2f;
+    [SerializeField] private float _jumpHeight = 2f;
 
     [Header("Temp Debug")]
     [SerializeField] private bool _tempEnableSine = true;
@@ -25,7 +28,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     private void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+        _charController = GetComponent<CharacterController>();
     }
 
     private void OnDestroy()
@@ -50,16 +53,30 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     void InputSystem_Actions.IPlayerActions.OnJump(InputAction.CallbackContext ctx)
     {
-        if (ctx.performed)
+        if (ctx.performed && _charController.isGrounded)
         {
             print("JUMP!!1!");
-            _rb.AddForce(Vector3.up * _jumpForce, ForceMode.Impulse);
+            _queueJump = true;
         }
     }
 
     private void Update()
     {
+        if (_charController.isGrounded && _velocity.y < 0)
+        {
+            _velocity.y = -2f;
+        }
+
+        if (_queueJump && _charController.isGrounded)
+        {
+            _queueJump = false;
+            _velocity.y = Mathf.Sqrt(_jumpHeight * -2f * _gravity);
+        }
+
+        _velocity.y += _gravity * Time.deltaTime;
         float speedMod = _tempEnableSine ? Mathf.Sin(Time.time * Mathf.PI / _tempSineMotionPeriod) : 1f;
-        transform.Translate(new Vector3(_speed * speedMod, 0, 0) * Time.deltaTime);
+
+        Vector3 frameMotion = (_speed * speedMod * Vector3.right + _velocity) * Time.deltaTime;
+        _charController.Move(frameMotion);
     }
 }
