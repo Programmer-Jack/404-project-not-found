@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BillboardOverlay Variant
+  m_Name: OverlayMagenta
   m_Shader: {fileID: 4800000, guid: c4edd00ff2db5b24391a4fcb1762e459, type: 3}
   m_Parent: {fileID: 2100000, guid: ca4591349d8e71046a3224b72143d1b2, type: 2}
   m_ModifiedSerializedProperties: 16
@@ -42,8 +42,8 @@ Material:
     - _TransparentZWrite: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0, a: 0.5529412}
-    - _UnlitColor: {r: 1, g: 0, b: 0, a: 0.5529412}
+    - _Color: {r: 1, g: 0, b: 1, a: 1}
+    - _UnlitColor: {r: 1, g: 0, b: 1, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6066832907364736339
