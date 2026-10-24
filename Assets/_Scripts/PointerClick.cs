@@ -42,7 +42,7 @@ public class PointerClick : MonoBehaviour, InputSystem_Actions.IPointerActions
     void InputSystem_Actions.IPointerActions.OnPoint(InputAction.CallbackContext context)
     {
         _screenspacePointerPos = context.ReadValue<Vector2>();
-        print($"Screenspace pointer pos = {_screenspacePointerPos}");
+        //print($"Screenspace pointer pos = {_screenspacePointerPos}");
     }
 
     void InputSystem_Actions.IPointerActions.OnWorldClick(InputAction.CallbackContext context)
@@ -53,7 +53,7 @@ public class PointerClick : MonoBehaviour, InputSystem_Actions.IPointerActions
         {
             if (hit.transform.CompareTag(_closeButtonTag))
             {
-                print($"Hit at {hit.point}");
+                //print($"Hit at {hit.point}");
                 PopupCloseButton closeScript = hit.transform.GetComponent<PopupCloseButton>();
                 closeScript.Close();
             }

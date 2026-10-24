@@ -15,6 +15,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float _speed = 4f;
     [SerializeField] private float _jumpHeight = 2f;
 
+    private Vector3 _spawnpoint;
+
     [Header("Temp Debug")]
     [SerializeField] private bool _tempEnableSine = true;
     [SerializeField] private float _tempSineMotionPeriod = 3.0f;
@@ -24,6 +26,8 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _actions = new InputSystem_Actions();              // Create asset object.
         _player = _actions.Player;                      // Extract action map object.
         _player.AddCallbacks(this);                      // Register callback interface IPlayerActions.
+
+        _spawnpoint = transform.position;
     }
 
     private void Start()
@@ -39,11 +43,13 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     private void OnEnable()
     {
         _player.Enable();                                // Enable all actions within map.
+        CrashOnFall.OnRespawn += Respawn;
     }
 
     private void OnDisable()
     {
         _player.Disable();                               // Disable all actions within map.
+        CrashOnFall.OnRespawn -= Respawn;
     }
 
     void InputSystem_Actions.IPlayerActions.OnCrouch(InputAction.CallbackContext ctx)
@@ -80,5 +86,11 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
         Vector3 frameMotion = (_speed * speedMod * Vector3.right + _velocity) * Time.deltaTime;
         _charController.Move(frameMotion);
+    }
+
+    private void Respawn()
+    {
+        transform.position = _spawnpoint;
+        _velocity = Vector3.zero;
     }
 }
