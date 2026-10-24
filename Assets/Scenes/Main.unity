@@ -247,7 +247,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f2796df4ab78dc44aa0f05ccdee501b6, type: 2}
+  - {fileID: 2100000, guid: 4a610a9b126f1e54d8d2ef0ea63dbf13, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -753,7 +753,7 @@ MonoBehaviour:
   priority: 0
   customPasses:
   - rid: 2273589393499095270
-  - rid: 2273589396217790532
+  - rid: 2273589396217790533
   injectionPoint: 2
   m_TargetCamera: {fileID: 0}
   useTargetCamera: 0
@@ -774,8 +774,8 @@ MonoBehaviour:
         materialPassIndex: 0
         materialPassName: Custom Pass 0
         fetchColorBuffer: 0
-    - rid: 2273589396217790532
-      type: {class: ObjectIDCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
+    - rid: 2273589396217790533
+      type: {class: FullScreenCustomPass, ns: UnityEngine.Rendering.HighDefinition, asm: Unity.RenderPipelines.HighDefinition.Runtime}
       data:
         m_Name: Custom Pass
         enabled: 0
@@ -784,33 +784,10 @@ MonoBehaviour:
         clearFlags: 0
         passFoldout: 0
         m_Version: 0
-        filterFoldout: 0
-        rendererFoldout: 0
-        renderQueueType: 2
-        layerMask:
-          serializedVersion: 2
-          m_Bits: 1
-        sortingCriteria: 51
-        overrideMode: 1
-        overrideMaterial: {fileID: 0}
-        overrideMaterialPassIndex: 0
-        overrideMaterialPassName: ForwardOnly
-        overrideShader: {fileID: 0}
-        overrideShaderPassIndex: 0
-        overrideShaderPassName: Forward
-        overrideDepthState: 0
-        depthCompareFunction: 4
-        depthWrite: 1
-        overrideStencil: 0
-        stencilReferenceValue: 64
-        stencilWriteMask: 192
-        stencilReadMask: 192
-        stencilCompareFunction: 8
-        stencilPassOperation: 0
-        stencilFailOperation: 0
-        stencilDepthFailOperation: 0
-        shaderPass: 0
-        variableRateShading: 0
+        fullscreenPassMaterial: {fileID: 2100000, guid: 99c74b22b44b6be46935cdaf931d4717, type: 2}
+        materialPassIndex: 0
+        materialPassName: Custom Pass 0
+        fetchColorBuffer: 0
 --- !u!4 &167525938
 Transform:
   m_ObjectHideFlags: 0
