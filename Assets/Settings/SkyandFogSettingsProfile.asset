@@ -106,7 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f21c9cf0db442f4cacc9da8684cfffc, type: 3}
   m_Name: Glitch
   m_EditorClassIdentifier: Assembly-CSharp::Glitch
-  active: 1
+  active: 0
   intensity:
     m_OverrideState: 1
     m_Value: 1
