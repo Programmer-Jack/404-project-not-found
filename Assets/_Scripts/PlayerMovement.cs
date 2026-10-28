@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 // Example of using an InputActionMap named "Player" from a UnityEngine.MonoBehaviour implementing callback interface.
 // Modded version of example class
@@ -15,7 +16,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
     [SerializeField] private float _speed = 4f;
     [SerializeField] private float _jumpHeight = 2f;
 
-    private Vector3 _spawnpoint;
+    [SerializeField] private Transform _spawnpoint;
 
     [Header("Temp Debug")]
     [SerializeField] private bool _tempEnableSine = true;
@@ -27,7 +28,7 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
         _player = _actions.Player;                      // Extract action map object.
         _player.AddCallbacks(this);                      // Register callback interface IPlayerActions.
 
-        _spawnpoint = transform.position;
+        //_spawnpoint = transform.position;
     }
 
     private void Start()
@@ -90,7 +91,9 @@ public class PlayerMovement : MonoBehaviour, InputSystem_Actions.IPlayerActions
 
     private void Respawn()
     {
-        transform.position = _spawnpoint;
-        _velocity = Vector3.zero;
+        //print("Respawning");
+        //transform.position = _spawnpoint.position;
+        //_velocity = Vector3.zero;
+        SceneManager.LoadScene(0);
     }
 }
